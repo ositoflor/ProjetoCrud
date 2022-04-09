@@ -1,0 +1,28 @@
+<%- contentFor('body') %>
+<h4 class="title-content"><%=title%></h4>
+
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-medium green" href="/tabelas/add">
+        <i class="large material-icons">add</i>
+    </a>
+</div>
+
+<table class="centered  highlight">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%for(let tabela of tabelas){%>
+        <tr>
+            <td><%= tabela.nome%></td>
+            <td>
+                <a href="/tabelas/edit/<%= tabela.id%>" class="btn-floating green"><i class="material-icons">edit</i></a>
+                <a href="/tabelas/remove/<%= tabela.id%>" class="btn-floating red"><i class="material-icons">delete</i></a>
+            </td>
+        </tr>
+        <%}%>
+    </tbody>
+</table>

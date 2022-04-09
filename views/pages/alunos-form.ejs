@@ -1,0 +1,26 @@
+<%- contentFor('body')%>
+
+    <div class="container">
+        <h1>
+            <%=title%>
+        </h1>
+        <form action="/alunos/<%=route%>" method="post">
+            
+            <%if(data.id>= 0){%>
+                <input type="hidden" name="id" value="<%=data.id%>" name="id" id="id">
+                <%}%>
+
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" value="<%=data.nome%>">
+                    <span class="helper-text" data-error="wrong" data-success="right">Helper text</span><br>
+                    <label for="curo">Curso:</label>
+                    <input type="text" id="curso" name="curso" value="<%=data.curso%>">
+                    <span class="helper-text" data-error="wrong" data-success="right">Helper text</span><br>
+                    <label for="matricula">Matricula:</label>
+                    <input type="text" id="matricula" name="matricula" value="<%=data.matricula%>">
+                    <span class="helper-text" data-error="wrong" data-success="right">Helper text</span><br>
+                    <button class="waves-effect waves-light btn" type="submit">Enviar</button>
+                    <button class="waves-effect waves-light btn" type="reset">Limpar</button>
+                    <a class="waves-effect waves-light btn" href="/alunos">Voltar</a>
+        </form>
+    </div>

@@ -1,0 +1,40 @@
+<%- contentFor('body') %>
+    <div class="content-dashboard">
+        <h2 class="title-bashboard">Bem vindo!</h2>
+
+        <div class="row">
+            <div class="col s12 m4">
+              <div class="card">
+                  <p class="card-title">Tabelas</p>
+                <div class="card-content">
+                    <a href="/tabelas"><div class="card-panel teal">
+                        <p class="white-text"><%= tabelas.length%></p>
+                      </div>
+                    </a>
+                </div>
+              </div>
+            </div>
+            <div class="col s12 m4">
+                <div class="card">
+                    <p class="card-title">Marcas</p>
+                  <div class="card-content">
+                    <a href="/marcas"><div class="card-panel teal">
+                        <p class="white-text"><%= marcas.length%></p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col s12 m4">
+                <div class="card">
+                    <p class="card-title">Modelos</p>
+                  <div class="card-content">
+                    <a href="/modelos"><div class="card-panel teal">
+                        <p class="white-text">0</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+          </div>
+    </div>

@@ -1,0 +1,29 @@
+<%- contentFor('body') %>
+
+<div class="container">
+    <h4 class="title-content">
+        <%=title%>
+    </h4>
+    <form action="/marcas/<%=route%>" method="post">
+        
+        <%if(data.id>= 0){%>
+            <input type="hidden" name="id" value="<%=data.id%>" name="id" id="id">
+            <%}%>
+            <div class="input-field col s12">
+                <select>
+                  <option value="" disabled selected>Escolha uma tabela</option>
+                  <%for(let tabela of tabelas){%>
+                    <option value="<%=tabela.nome%>"><%=tabela.nome%></option>
+                    <%}%>
+                </select>
+                <label>Tabelas</label>
+              </div>
+
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" value="<%=data.nome%>">
+                <span class="helper-text" data-error="wrong" data-success="right"></span><br>
+                <button class="waves-effect waves-light btn" type="submit"><%=btn%></button>
+                <button class="waves-effect waves-light btn" type="reset">Limpar</button>
+                <a class="waves-effect waves-light btn" href="/marcas">Voltar</a>
+    </form>
+</div>

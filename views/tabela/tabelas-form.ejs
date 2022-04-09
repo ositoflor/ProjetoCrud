@@ -1,0 +1,22 @@
+<%- contentFor('body') %>
+
+    <div class="container">
+        <h4 class="title-content">
+            <%=title%>
+        </h4>
+        <form action="/tabelas/<%=route%>" method="post">
+
+            <%if(data.id>= 0){%>
+                <input type="hidden" name="id" value="<%=data.id%>" name="id" id="id">
+                <%}%>
+                    
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" value="<%=data.nome%>">
+                    <span class="helper-text" data-error="wrong" data-success="right"></span><br>
+                    <button class="waves-effect waves-light btn" type="submit">
+                        <%=btn%>
+                    </button>
+                    <button class="waves-effect waves-light btn" type="reset">Limpar</button>
+                    <a class="waves-effect waves-light btn" href="/tabelas">Voltar</a>
+        </form>
+    </div>

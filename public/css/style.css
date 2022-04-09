@@ -1,0 +1,34 @@
+.title-content {
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Dashboard*/
+.title-bashboard {
+  text-align: center;
+}
+
+.card .card-title{
+  text-align: center;
+  margin: 0;
+  font-weight: bold;
+}
+
+.card-panel {
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.white-text {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/* Fim Dashboard */
+
+/* Tabela */
+
+.btn-floating {
+  margin-left: 10px;
+}

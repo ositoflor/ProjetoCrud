@@ -1,0 +1,31 @@
+<%- contentFor('body') %>
+<h4 class="title-content"><%=title%></h4>
+
+<div class="fixed-action-btn">
+    <a class="btn-floating btn-medium green" href="/marcas/add">
+        <i class="large material-icons">add</i>
+    </a>
+</div>
+
+
+<table class="centered  highlight">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Tabela</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%for(let marca of marcas){%>
+        <tr>
+            <td><%= marca.nome%></td>
+            <td><%= marca.tabela%></td>
+            <td>
+                <a href="/marcas/edit/<%= marca.id%>" class="btn-floating green"><i class="material-icons">edit</i></a>
+                <a href="/marcas/remove/<%= marca.id%>" class="btn-floating red"><i class="material-icons">delete</i></a>
+            </td>
+        </tr>
+        <%}%>
+    </tbody>
+</table>
