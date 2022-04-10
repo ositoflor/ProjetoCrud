@@ -10,7 +10,7 @@
             <input type="hidden" name="id" value="<%=data.id%>" name="id" id="id">
             <%}%>
             <div class="input-field col s12">
-                <select>
+                <select name="tabela">
                   <option value="" disabled selected>Escolha uma tabela</option>
                   <%for(let tabela of tabelas){%>
                     <option value="<%=tabela.nome%>"><%=tabela.nome%></option>
@@ -23,7 +23,7 @@
                 <input type="text" id="nome" name="nome" value="<%=data.nome%>">
                 <span class="helper-text" data-error="wrong" data-success="right"></span><br>
                 <button class="waves-effect waves-light btn" type="submit"><%=btn%></button>
-                <button class="waves-effect waves-light btn" type="reset">Limpar</button>
+                <button class="waves-effect waves-light btn <%=reset%>" type="reset">Limpar</button>
                 <a class="waves-effect waves-light btn" href="/marcas">Voltar</a>
     </form>
 </div>

@@ -11,19 +11,28 @@ router.get('/', function (req, res, next) {
       res.render('marcas/marcas-list', { marcas: response.data, title: 'Marcas' });
   })
   .catch(function (error) {
-     console.log("Erro ao carregar tabelas: ", error);
+     console.log("Erro ao carregar Marcas: ", error);
   })
 });
 
 router.get('/edit/:id', function(req, res, next) {
-  console.log("ID: ", req.params.id);
+  let dataTabelas = [];
+  axios.get(urlTabela)
+  .then(function (response) {
+    dataTabelas = response.data;
+  })
+  .catch(function (error) {
+    console.log(error);
+  })
   axios.get(`${url}/${req.params.id}`)
   .then(function(response) {
     res.render('marcas/marcas-form', { 
-      title: 'Editar Tabela', 
+      title: 'Editar Marca', 
+      tabelas: dataTabelas,
       data: response.data, 
       route: 'update',
-      btn: "Atualizar"
+      btn: "Atualizar",
+      reset: "disabled"
     });
   })
   .catch(function(error) {
@@ -34,13 +43,14 @@ router.get('/edit/:id', function(req, res, next) {
 router.get('/add', function (req, res, next) {
   axios.get(urlTabela)
   .then(function(response) {
-    console.log("response: marcas ", response.data);
+
     res.render('marcas/marcas-form', { 
         tabelas: response.data,
         title: 'Adicionar Marca', 
         data: {nome: ''}, 
         route: 'save',
-        btn: "Salvar"
+        btn: "Salvar",
+        reset: ""
       });
   })
   .catch(function(error) {
@@ -52,7 +62,11 @@ router.get('/add', function (req, res, next) {
 router.post('/save', function (req, res, next) {
     
   axios.post(url, req.body)
-  console.log("req.body: ", req)
+  .then(function (response) {
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
   res.redirect('/marcas');
 });
 

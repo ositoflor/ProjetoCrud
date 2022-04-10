@@ -1,1 +1,43 @@
 <%- contentFor('body') %>
+
+<div class="container">
+    <h4 class="title-content">
+        <%=title%>
+    </h4>
+    <div class="row"> 
+    <form action="/modelos/<%=route%>" method="post">
+       
+        <%if(data.id>= 0){%>
+            <input type="hidden" name="id" value="<%=data.id%>" name="id" id="id">
+            <%}%>
+            <div class="input-field col s4">
+                <select name="tabela">
+                  <option value="" disabled selected>Escolha uma marca</option>
+                  <%for(let marca of marcas){%>
+                    <option value="<%=marca.nome%>"><%=marca.nome%></option>
+                    <%}%>
+                </select>
+                <label>Marca</label>
+              </div>
+
+              <div class="input-field col s4">
+                <select name="marca">
+                  <option value="" disabled selected>Escolha uma tabela</option>
+                  <%for(let marca of marcas){%>
+                    <option value="<%=marca.tabela%>"><%=marca.tabela%></option>
+                    <%}%>
+                </select>
+                <label>Tabela</label>
+              </div>
+
+              <div class="col s12">
+                <label for="nome">Nome:</label>
+                <input type="text" id="modelo" name="modelo" value="<%=data.modelo%>">
+                <span class="helper-text" data-error="wrong" data-success="right"></span><br>
+                <button class="waves-effect waves-light btn" type="submit"><%=btn%></button>
+                <button class="waves-effect waves-light btn <%=reset%>" type="reset">Limpar</button>
+                <a class="waves-effect waves-light btn" href="/modelos">Voltar</a>
+            </div>
+    </form>
+</div>
+</div>

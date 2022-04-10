@@ -2,7 +2,32 @@
 <h4 class="title-content"><%=title%></h4>
 
 <div class="fixed-action-btn">
-    <a class="btn-floating btn-medium green" href="/alunos/add">
+    <a class="btn-floating btn-medium green" href="/modelos/add">
         <i class="large material-icons">add</i>
     </a>
 </div>
+
+
+<table class="centered  highlight">
+    <thead>
+        <tr>
+            <th>Modelo</th>
+            <th>Marca</th>
+            <th>Tabela</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%for(let modelo of modelos){%>
+        <tr>
+            <td><%= modelo.modelo%></td>
+            <td><%= modelo.marca%></td>
+            <td><%= modelo.tabela%></td>
+            <td>
+                <a href="/modelos/edit/<%= modelo.id%>" class="btn-floating green"><i class="material-icons">edit</i></a>
+                <a href="/modelos/remove/<%= modelo.id%>" class="btn-floating red"><i class="material-icons">delete</i></a>
+            </td>
+        </tr>
+        <%}%>
+    </tbody>
+</table>
