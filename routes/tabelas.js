@@ -14,7 +14,6 @@ router.get('/', function (req, res, next) {
 });
 
 router.get('/edit/:id', function(req, res, next) {
-  console.log("ID: ", req.params.id);
   axios.get(`${url}/${req.params.id}`)
   .then(function(response) {
     res.render('tabela/tabelas-form', { 
@@ -42,7 +41,7 @@ router.post('/save', function (req, res, next) {
     
   axios.post(url, req.body)
       .then(function (response) {
-          // console.log(response);
+
       })
       .catch(function (error) {
           console.log(error);

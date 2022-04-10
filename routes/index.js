@@ -14,7 +14,6 @@ router.get('/', function (req, res, next) {
   axios.get(urlTabela)
     .then(function (response) {
       dataTabela = response.data;
-      console.log(dataTabela)
     })
     .catch(function (error) {
       console.log(error);
@@ -22,7 +21,6 @@ router.get('/', function (req, res, next) {
     axios.get(urlModelos)
     .then(function (response) {
       dataModelos = response.data;
-      console.log(dataTabela)
     })
     .catch(function (error) {
       console.log(error);

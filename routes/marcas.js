@@ -32,7 +32,8 @@ router.get('/edit/:id', function(req, res, next) {
       data: response.data, 
       route: 'update',
       btn: "Atualizar",
-      reset: "disabled"
+      reset: "disabled",
+      selctTabela: response.data.tabela
     });
   })
   .catch(function(error) {
@@ -50,7 +51,8 @@ router.get('/add', function (req, res, next) {
         data: {nome: ''}, 
         route: 'save',
         btn: "Salvar",
-        reset: ""
+        reset: "",
+        selctTabela: 'Escolha uma tabela'
       });
   })
   .catch(function(error) {

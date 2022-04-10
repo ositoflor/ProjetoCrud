@@ -2,7 +2,42 @@
 <h4 class="title-content"><%=title%></h4>
 
 <div class="fixed-action-btn">
-    <a class="btn-floating btn-medium green" href="/alunos/add">
+    <a class="btn-floating btn-medium green" href="/versao/add">
         <i class="large material-icons">add</i>
     </a>
 </div>
+
+
+<table class="centered  highlight">
+    <thead>
+        <tr>
+            <th>Modelo</th>
+            <th>Marca</th>
+            <th>Versão</th>
+            <th>Combustivel</th>
+            <th>Vidros</th>
+            <th>Portas</th>
+            <th>Preço</th>
+            <th>Tabela</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%for(let versao of versoes){%>
+        <tr>
+            <td><%= versao.modelo%></td>
+            <td><%= versao.marca%></td>
+            <td><%= versao.versao%></td>
+            <td><%= versao.combustivel%></td>
+            <td><%= versao.vidros%></td>
+            <td><%= versao.portas%></td>
+            <td>R$ <%= versao.preco%></td>
+            <td><%= versao.tabela%></td>
+            <td>
+                <a href="/versao/edit/<%= versao.id%>" class="btn-floating green"><i class="material-icons">edit</i></a>
+                <a href="/versao/remove/<%= versao.id%>" class="btn-floating red"><i class="material-icons">delete</i></a>
+            </td>
+        </tr>
+        <%}%>
+    </tbody>
+</table>

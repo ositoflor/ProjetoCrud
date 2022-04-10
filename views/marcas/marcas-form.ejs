@@ -11,7 +11,7 @@
             <%}%>
             <div class="input-field col s12">
                 <select name="tabela">
-                  <option value="" disabled selected>Escolha uma tabela</option>
+                  <option value="<%=selctTabela%>" disabled selected><%=selctTabela%></option>
                   <%for(let tabela of tabelas){%>
                     <option value="<%=tabela.nome%>"><%=tabela.nome%></option>
                     <%}%>

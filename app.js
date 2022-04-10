@@ -8,7 +8,6 @@ var expressLayouts = require('express-ejs-layouts')
 //IMPORTES DA ROTA PAI DA APLICAÇÃO
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var alunosRouter = require('./routes/alunos');
 var tabelasRouter = require('./routes/tabelas');
 var marcasRouter = require('./routes/marcas');
 var modelosRouter = require('./routes/modelos');
@@ -32,7 +31,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 //ROTAS PAI DA APLICAÇÃO
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/alunos', alunosRouter);
 app.use('/tabelas', tabelasRouter);
 app.use('/marcas', marcasRouter);
 app.use('/modelos', modelosRouter);

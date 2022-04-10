@@ -11,8 +11,8 @@
             <input type="hidden" name="id" value="<%=data.id%>" name="id" id="id">
             <%}%>
             <div class="input-field col s4">
-                <select name="tabela">
-                  <option value="" disabled selected>Escolha uma marca</option>
+                <select name="marca">
+                  <option value="<%=selctMarca%>" disabled selected><%=selctMarca%></option>
                   <%for(let marca of marcas){%>
                     <option value="<%=marca.nome%>"><%=marca.nome%></option>
                     <%}%>
@@ -21,8 +21,8 @@
               </div>
 
               <div class="input-field col s4">
-                <select name="marca">
-                  <option value="" disabled selected>Escolha uma tabela</option>
+                <select name="tabela">
+                  <option value="<%=selctTabela%>" disabled selected><%=selctTabela%></option>
                   <%for(let marca of marcas){%>
                     <option value="<%=marca.tabela%>"><%=marca.tabela%></option>
                     <%}%>
