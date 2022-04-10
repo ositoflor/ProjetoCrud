@@ -8,42 +8,7 @@
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <style>
-    .title-content {
-      text-align: center;
-      font-weight: 700;
-    }
-
-    /* Dashboard*/
-    .title-bashboard {
-      text-align: center;
-    }
-
-    .card .card-title {
-      text-align: center;
-      margin: 0;
-      font-weight: bold;
-    }
-
-    .card-panel {
-      text-align: center;
-      width: 50%;
-      margin: 0 auto;
-    }
-
-    .white-text {
-      font-weight: bold;
-      font-size: 1.5rem;
-    }
-
-    /* Fim Dashboard */
-
-    /* Tabela */
-
-    .btn-floating {
-      margin-left: 10px;
-    }
-  </style>
+  <link rel="stylesheet" href="../../css/style.css">
 </head>
 
 <body>
@@ -78,29 +43,6 @@
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script>
-
-  (function ($) {
-    $(function () {
-
-      $('.sidenav').sidenav();
-
-    }); // end of document ready
-  })(jQuery); // end of jQuery name space
-
-
-
-  document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('select');
-    var instances = M.FormSelect.init(elems, options);
-  });
-
-  // Or with jQuery
-
-  $(document).ready(function () {
-    $('select').formSelect();
-  });
-
-</script>
+<script src="../../js/init.js"></script>
 
 </html>
