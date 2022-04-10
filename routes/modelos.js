@@ -53,7 +53,7 @@ router.get('/add', function (req, res, next) {
         route: 'save',
         btn: "Salvar",
         reset: "",
-        selctMarca: 'Escolha um modelo',
+        selctMarca: 'Escolha uma marca',
         selctTabela: 'Escolha uma tabela'
       });
   })
