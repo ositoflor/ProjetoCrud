@@ -1,5 +1,6 @@
 var express = require('express');
 var axios = require('axios');
+const { body, validationResult } = require('express-validator');
 var router = express.Router();
 var url = 'https://apiflor.herokuapp.com/marcas'
 var urlTabela = 'https://apiflor.herokuapp.com/tabela'
@@ -32,7 +33,6 @@ router.get('/edit/:id', function(req, res, next) {
       data: response.data, 
       route: 'update',
       btn: "Atualizar",
-      reset: "disabled",
       selctTabela: response.data.tabela
     });
   })
@@ -51,7 +51,6 @@ router.get('/add', function (req, res, next) {
         data: {nome: ''}, 
         route: 'save',
         btn: "Salvar",
-        reset: "",
         selctTabela: 'Escolha uma tabela'
       });
   })

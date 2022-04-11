@@ -1,1 +1,114 @@
 <%- contentFor('body') %>
+
+<div class="container">
+    <h4 class="title-content">
+        <%=title%>
+    </h4>
+    <div class="row"> 
+    <form id="formVersao" action="/versao/<%=route%>" method="post">
+       
+        <%if(data.id>= 0){%>
+            <input type="hidden" name="id" value="<%=data.id%>" name="id" id="id">
+            <%}%>
+            <div class="input-field col s4">
+                <select name="marca">
+                  <option value="<%=selctMarca%>" disabled selected><%=selctMarca%></option>
+                  <%for(let modelo of modelos){%>
+                    <option value="<%=modelo.marca%>"><%=modelo.marca%></option>
+                    <%}%>
+                </select>
+                <label>Marca:</label>
+              </div>
+
+              <div class="input-field col s4">
+                <select name="modelo">
+                  <option value="<%=selctModel%>" disabled selected><%=selctModel%></option>
+                  <%for(let modelo of modelos){%>
+                    <option value="<%=modelo.modelo%>"><%=modelo.modelo%></option>
+                    <%}%>
+                </select>
+                <label>Modelo:</label>
+              </div>
+
+              <div class="input-field col s4">
+                <select name="tabela">
+                  <option value="<%=selctTabela%>" disabled selected><%=selctTabela%></option>
+                  <%for(let modelo of modelos){%>
+                    <option value="<%=modelo.tabela%>"><%=modelo.tabela%></option>
+                    <%}%>
+                </select>
+                <label>Tabela:</label>
+              </div>
+              
+              <div class="col s6">
+                <label for="versao">Versão:</label>
+                <input type="text" id="versao" class="validate" required maxlength="50" minlength="4" name="versao" value="<%=data.versao%>">
+                    <span class="helper-text" data-error="" data-success=""></span><br>
+                </div>
+                <div class="col s6">
+                    <label for="versao">Preço:</label>
+                    <input type="text" id="preco" class="validate" required maxlength="50" minlength="4" name="preco" value="<%=data.preco%>">
+                        <span class="helper-text" data-error="" data-success=""></span>
+                    </div><br>
+                <div class="row">
+                    <div class="col s4">
+                    <label for="combustivel">Combustivel:</label>
+                    <p>
+                        <label>
+                          <input name="combustivel" type="radio" value="Gasolina"/>
+                          <span>Gasalina</span>
+                        </label>
+                      </p>
+                      <p>
+                        <label>
+                          <input name="combustivel" type="radio" value="Disel" />
+                          <span>Disel</span>
+                        </label>
+                      </p>
+                      <p>
+                        <label>
+                          <input  name="combustivel" type="radio"  value="Flex Gasalina/Alcool"/>
+                          <span>Flex Gasalina/Alcool</span>
+                        </label>
+                      </p>
+                    </div>
+                    <div class="col s4">
+                        <label for="portas">Portas:</label>
+                        <p>
+                            <label>
+                              <input name="portas" type="radio" value="2"/>
+                              <span>2</span>
+                            </label>
+                          </p>
+                          <p>
+                            <label>
+                              <input name="portas" type="radio" value="4" />
+                              <span>4</span>
+                            </label>
+                          </p>
+                        </div>
+                        <div class="col s4">
+                            <label for="vidros">Vidros elétricos:</label>
+                            <p>
+                                <label>
+                                  <input name="vidros" type="radio" value="sim"/>
+                                  <span>sim</span>
+                                </label>
+                              </p>
+                              <p>
+                                <label>
+                                  <input name="vidros" type="radio" value="não" />
+                                  <span>Não</span>
+                                </label>
+                              </p>
+                            </div>
+                </div>
+                <button class="waves-effect waves-light btn" type="submit"><%=btn%></button>
+                <%if(route=='save' ){%>
+                  <button class="waves-effect waves-light btn" type="reset">Limpar</button>
+              <%}%>
+                <a class="waves-effect waves-light btn" href="/versao">Voltar</a>
+            </div>
+    </form>
+</div>
+</div>

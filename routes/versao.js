@@ -1,8 +1,9 @@
 var express = require('express');
 var axios = require('axios');
+const { body, validationResult } = require('express-validator');
 var router = express.Router();
 var url = 'https://apiflor.herokuapp.com/versao'
-var urlTabela = 'https://apiflor.herokuapp.com/marcas'
+var urlTabela = 'https://apiflor.herokuapp.com/modelos'
 
 
 router.get('/', function (req, res, next) {
@@ -14,6 +15,7 @@ router.get('/', function (req, res, next) {
      console.log("Erro ao carregar Modelos: ", error);
   })
 });
+
 
 router.get('/edit/:id', function(req, res, next) {
   let dataMarcas = [];
@@ -27,12 +29,14 @@ router.get('/edit/:id', function(req, res, next) {
   axios.get(`${url}/${req.params.id}`)
   .then(function(response) {
     res.render('versao/versao-form', { 
-      title: 'Editar Modelo', 
-      marcas: dataMarcas,
-      data: response.data, 
+      title: 'Editar Versão', 
+      modelos: dataMarcas,
+      data: response.data,
       route: 'update',
       btn: "Atualizar",
-      reset: "disabled"
+      selctMarca: response.data.marca,
+      selctTabela: response.data.tabela,
+      selctModel: response.data.modelo
     });
   })
   .catch(function(error) {
@@ -45,12 +49,14 @@ router.get('/add', function (req, res, next) {
   .then(function(response) {
 
     res.render('versao/versao-form', { 
-        marcas: response.data,
-        title: 'Adicionar Modelo', 
+        modelos: response.data,
+        title: 'Adicionar Versão', 
         data: {nome: ''}, 
         route: 'save',
         btn: "Salvar",
-        reset: ""
+        selctMarca: 'Escolha uma marca',
+        selctTabela: 'Escolha uma tabela',
+        selctModel: 'Escolha um modelo',
       });
   })
   .catch(function(error) {
@@ -89,7 +95,6 @@ router.get('/remove/:id', function(req, res, next) {
   });
   res.redirect('/versao');
 });
-
 
 
 module.exports = router;

@@ -1,5 +1,6 @@
 var express = require('express');
 var axios = require('axios');
+const { body, validationResult } = require('express-validator');
 var router = express.Router();
 var url = 'https://apiflor.herokuapp.com/tabela'
 

@@ -1,5 +1,6 @@
 var express = require('express');
 var axios = require('axios');
+const { body, validationResult } = require('express-validator');
 var router = express.Router();
 var url = 'https://apiflor.herokuapp.com/modelos'
 var urlTabela = 'https://apiflor.herokuapp.com/marcas'
@@ -25,6 +26,7 @@ router.get('/edit/:id', function(req, res, next) {
     console.log(error);
   })
   axios.get(`${url}/${req.params.id}`)
+  
   .then(function(response) {
     res.render('modelos/modelos-form', { 
       title: 'Editar Modelo', 
@@ -32,7 +34,6 @@ router.get('/edit/:id', function(req, res, next) {
       data: response.data, 
       route: 'update',
       btn: "Atualizar",
-      reset: "disabled",
       selctMarca: response.data.marca,
       selctTabela: response.data.tabela
     });
@@ -52,7 +53,6 @@ router.get('/add', function (req, res, next) {
         data: {nome: ''}, 
         route: 'save',
         btn: "Salvar",
-        reset: "",
         selctMarca: 'Escolha uma marca',
         selctTabela: 'Escolha uma tabela'
       });

@@ -5,7 +5,7 @@
         <%=title%>
     </h4>
     <div class="row"> 
-    <form action="/modelos/<%=route%>" method="post">
+    <form id="formModel" action="/modelos/<%=route%>" method="post">
        
         <%if(data.id>= 0){%>
             <input type="hidden" name="id" value="<%=data.id%>" name="id" id="id">
@@ -32,10 +32,12 @@
 
               <div class="col s12">
                 <label for="nome">Nome:</label>
-                <input type="text" id="modelo" name="modelo" value="<%=data.modelo%>">
-                <span class="helper-text" data-error="wrong" data-success="right"></span><br>
+                <input type="text" id="modelo" class="validate" required maxlength="10" minlength="4" name="modelo" value="<%=data.modelo%>">
+                    <span class="helper-text" data-error="" data-success=""></span><br>
                 <button class="waves-effect waves-light btn" type="submit"><%=btn%></button>
-                <button class="waves-effect waves-light btn <%=reset%>" type="reset">Limpar</button>
+                <%if(route=='save' ){%>
+                  <button class="waves-effect waves-light btn" type="reset">Limpar</button>
+              <%}%>
                 <a class="waves-effect waves-light btn" href="/modelos">Voltar</a>
             </div>
     </form>
