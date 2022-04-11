@@ -12,7 +12,7 @@ var tabelasRouter = require('./routes/tabelas');
 var marcasRouter = require('./routes/marcas');
 var modelosRouter = require('./routes/modelos');
 var versaoRouter = require('./routes/versao');
-var precosRouter = require('./routes/precos');
+
 
 var app = express();
 
@@ -35,7 +35,7 @@ app.use('/tabelas', tabelasRouter);
 app.use('/marcas', marcasRouter);
 app.use('/modelos', modelosRouter);
 app.use('/versao', versaoRouter);
-app.use('/precos', precosRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
